@@ -20,18 +20,19 @@ the capability.
 
 ## Install
 
-```
-npm install github:argszero/dsh-tool-update-route-guard
-```
-
-or, once the package is on npm:
-
-```
-npm install @argszero/dsh-tool-update-route-guard
+```sh
+dsh plugin --profile <profile> add github:argszero/dsh-tool-update-route-guard
 ```
 
-The package ships a `dsh.bundle.patch` manifest, so adding it to a profile is the
-whole mount step; the patch inserts the plugin as `tool-update-route-guard`.
+That one command installs the package into the profile and adds it to the
+profile's bundle list. A plain `npm install` of the same spec is **inert on its
+own**: a bundle becomes a layer only when the profile's `package.json` lists it
+under `dsh.profile.bundles` (`packages/boot/app-boot/src/profile.ts`), and the
+plugin manager is what writes that list after an install
+(`packages/boot/plugin-manager/src/operations.ts`).
+
+The package ships a `dsh.bundle.patch` manifest; the patch inserts the plugin as
+`tool-update-route-guard`.
 
 ## Configure
 
