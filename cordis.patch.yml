@@ -1,0 +1,3 @@
+- insert:
+    - id: tool-update-route-guard
+      name: '@argszero/dsh-tool-update-route-guard'
